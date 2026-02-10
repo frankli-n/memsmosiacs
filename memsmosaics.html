@@ -168,6 +168,18 @@
             animation: float 20s ease-in-out infinite;
         }
 
+        .hero-logo {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        }
+
+        .hero-logo img {
+        width: clamp(120px, 18vw, 260px);
+        height: auto;
+        }
+
+
         @keyframes float {
             0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
@@ -364,14 +376,25 @@
             gap: var(--spacing-lg);
             align-items: center;
             animation: fadeInUp 0.8s ease-out both;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
+        @media (min-width: 1100px) {
+        .about-content {
+            grid-template-columns: minmax(320px, 520px) 1fr; 
+        }
+
+
         .about-image {
+            width: 100%;
+            max-width: 520px;
+            justify-self: center;
             position: relative;
             aspect-ratio: 4/5;
             overflow: hidden;
         }
-
+        }
         .about-image img {
             width: 100%;
             height: 100%;
@@ -393,6 +416,81 @@
             color: var(--color-mid);
             margin-bottom: var(--spacing-sm);
         }
+
+        /* About carousel */
+        .about-carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        }
+
+        .about-carousel-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 450ms ease;
+        }
+
+        .about-carousel-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        user-select: none;
+        -webkit-user-drag: none;
+        }
+
+        /* Buttons */
+        .about-carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: rgba(0, 0, 0, 0.55);
+        color: white;
+        font-size: 2rem;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .about-carousel-btn:hover {
+        background: rgba(0, 0, 0, 0.75);
+        transform: translateY(-50%) scale(1.05);
+        }
+
+        .about-carousel-btn.prev { left: 12px; }
+        .about-carousel-btn.next { right: 12px; }
+
+        /* Dots */
+        .about-carousel-dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        }
+
+        .about-carousel-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.65);
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        }
+
+        .about-carousel-dot.active {
+        background: rgba(255,255,255,0.9);
+        }
+
 
         /* Contact Section */
         .contact-content {
@@ -564,6 +662,10 @@
         <div class="hero-content">
             <h1>MemsMosaics</h1>
             <p>Contemporary Mosaic Art</p>
+            <div class="hero-logo">
+                <!-- HERO LOGO SLOT - Replace with your PNG -->
+                <img src="images/cicada.png" alt="MemsMosaics Logo">
+            </div>
         </div>
         <div class="scroll-indicator"></div>
     </section>
@@ -585,45 +687,58 @@
 
             <!-- PHOTO SLOT 2 -->
             <div class="gallery-item" onclick="openModal(this)">
-                <img src="images/serene_sunset.jpeg" alt="Description of this mosaic">
-                <div class="overlay">
-                    <span class="title">Serene Sunset</span>
-                </div>
-            </div>
-
-            <!-- PHOTO SLOT 3 -->
-            <div class="gallery-item" onclick="openModal(this)">
                 <img src="images/bee.jpeg" alt="Description of this mosaic">
                 <div class="overlay">
                     <span class="title">Bee</span>
                 </div>
             </div>
 
+            <!-- PHOTO SLOT 3 -->
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/cicada1.jpeg" alt="Description of this mosaic">
+                <div class="overlay">
+                    <span class="title">Cicada</span>
+                </div>
+            </div>
+
             <!-- PHOTO SLOT 4 -->
             <div class="gallery-item" onclick="openModal(this)">
-                <img src="images/abstract_mosaic.jpeg" alt="Description of this mosaic">
+                <img src="images/echidna.jpeg" alt="Description of this mosaic">
                 <div class="overlay">
-                    <span class="title">Abstract Mosaic</span>
+                    <span class="title">Echidna</span>
                 </div>
             </div>
 
             <!-- PHOTO SLOT 5 -->
             <div class="gallery-item" onclick="openModal(this)">
-                <div class="photo-placeholder">Your Photo Here</div>
+                <img src="images/glass_lights.jpeg" alt="Description of this mosaic">
                 <div class="overlay">
-                    <span class="title">Artwork Title 5</span>
+                    <span class="title">Glass Lights</span>
                 </div>
             </div>
 
             <!-- PHOTO SLOT 6 -->
             <div class="gallery-item" onclick="openModal(this)">
-                <div class="photo-placeholder">Your Photo Here</div>
+                <img src="images/lost_girl.jpeg" alt="Description of this mosaic">
                 <div class="overlay">
-                    <span class="title">Artwork Title 6</span>
+                    <span class="title">Lost Girl</span>
                 </div>
             </div>
 
-            <!-- ADD MORE PHOTO SLOTS BY COPYING THE STRUCTURE ABOVE -->
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/moth.jpeg" alt="Description of this mosaic">
+                <div class="overlay">
+                    <span class="title">Moth</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                <img src="images/tess1.jpeg" alt="Description of this mosaic">
+                <div class="overlay">
+                    <span class="title">Tess</span>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -634,23 +749,41 @@
             <p class="subtitle">The artist behind the mosaics</p>
         </div>
         <div class="about-content">
-            <div class="about-image">
-                <!-- ABOUT PHOTO SLOT -->
-                <div class="photo-placeholder">Your Photo Here</div>
-            </div>
+
+<div class="about-image">
+  <div class="about-carousel" id="aboutCarousel" aria-label="About photo carousel">
+    <div class="about-carousel-track">
+      <img src="images/about1.jpeg" alt="Mosaic work in progress">
+      <img src="images/about2.jpeg" alt="Studio detail">
+      <img src="images/about3.jpeg" alt="Finished mosaic close-up">
+    </div>
+
+    <button class="about-carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="about-carousel-btn next" type="button" aria-label="Next photo">›</button>
+
+    <div class="about-carousel-dots" aria-label="Carousel navigation"></div>
+  </div>
+</div>
+
+            
+
+
             <div class="about-text">
                 <h3>Creating Art, Piece by Piece</h3>
                 <p>
-                    [Replace this text with your artist biography. Share your story, how you got started with mosaics, 
-                    what inspires your work, and your artistic philosophy.]
+                    Mosaicing offers me boundless possibilities for expression. 
+                    My art and technical studies in Italy and Australia have given me the skills 
+                    needed to mosaic using my favourite material - handmade glass.
                 </p>
                 <p>
-                    [Add more paragraphs about your process, techniques, materials you use, or what makes your 
-                    mosaics unique. This is your space to connect with visitors and share your passion.]
+                    I love to mix a variety of handmade glass such as Italian smalti, 24ct gold leaf tesserae, 
+                    millefiori, stained glass and iridised glass. 
+                    Mixed media interests me and I often include found objects, 
+                    jewellery, bone china, antique glass and ceramic tiles. 
                 </p>
                 <p>
-                    [You can include information about exhibitions, awards, commissions, or any other relevant 
-                    details about your artistic journey.]
+                    The technique of placing small pieces of beautiful materials (called tesserae) together 
+                    to form images enables me to immortalise the creations of my imagination. 
                 </p>
             </div>
         </div>
@@ -743,4 +876,53 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.secti
+        document.querySelectorAll('.section-header, .about-content, .contact-content, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // About carousel
+        (function initAboutCarousel() {
+        const carousel = document.getElementById('aboutCarousel');
+        if (!carousel) return;
+
+        const track = carousel.querySelector('.about-carousel-track');
+        const slides = Array.from(track.querySelectorAll('img'));
+        const prevBtn = carousel.querySelector('.about-carousel-btn.prev');
+        const nextBtn = carousel.querySelector('.about-carousel-btn.next');
+        const dotsWrap = carousel.querySelector('.about-carousel-dots');
+
+        let index = 0;
+
+        // Build dots
+        const dots = slides.map((_, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'about-carousel-dot' + (i === 0 ? ' active' : '');
+            b.setAttribute('aria-label', `Go to photo ${i + 1}`);
+            b.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(b);
+            return b;
+        });
+
+        function goTo(i) {
+            index = (i + slides.length) % slides.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d, di) => d.classList.toggle('active', di === index));
+        }
+
+        prevBtn.addEventListener('click', () => goTo(index - 1));
+        nextBtn.addEventListener('click', () => goTo(index + 1));
+
+        // Optional: autoplay (comment out if you don’t want it)
+        let timer = setInterval(() => goTo(index + 1), 4500);
+
+        // Pause autoplay on hover/focus
+        carousel.addEventListener('mouseenter', () => clearInterval(timer));
+        carousel.addEventListener('mouseleave', () => timer = setInterval(() => goTo(index + 1), 4500));
+        })();
+
+
+
+    </script>
+</body>
+</html>
