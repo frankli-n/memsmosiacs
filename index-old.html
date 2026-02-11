@@ -6,7 +6,7 @@
     <title>MemsMosaics - Contemporary Mosaic Art</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Roboto:wght@700;900&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #d88a4a;
@@ -14,7 +14,7 @@
             --color-light: #1a1a1a;
             --color-dark: #0a0a0a;
             --color-mid: #b0b0b0;
-            --font-display: 'Founders Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-display: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             --font-body: 'Montserrat', sans-serif;
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -29,7 +29,7 @@
             font-weight: bold;
             font-style: normal;
             font-display: swap;
-        }
+            }
 
         * {
             margin: 0;
@@ -85,7 +85,7 @@
         .logo {
             font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 300;
             letter-spacing: 2px;
             color: var(--color-primary);
             text-decoration: none;
@@ -109,6 +109,7 @@
             font-size: 0.9rem;
             font-weight: 400;
             letter-spacing: 1px;
+            /* text-transform: uppercase; */
             position: relative;
             padding: 0.5rem 0;
             transition: color 0.3s ease;
@@ -176,15 +177,16 @@
         }
 
         .hero-logo {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
         }
 
         .hero-logo img {
-            width: clamp(180px, 27vw, 390px);
-            height: auto;
+        width: clamp(180px, 27vw, 390px);
+        height: auto;
         }
+
 
         @keyframes float {
             0%, 100% {
@@ -218,7 +220,7 @@
         .hero h1 {
             font-family: var(--font-display);
             font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: bold;
+            font-weight: 300;
             color: var(--color-primary);
             margin-bottom: var(--spacing-sm);
             letter-spacing: 4px;
@@ -273,7 +275,7 @@
         .section-header h2 {
             font-family: var(--font-display);
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: bold;
+            font-weight: 300;
             color: var(--color-primary);
             margin-bottom: var(--spacing-sm);
             letter-spacing: 3px;
@@ -350,7 +352,7 @@
             color: white;
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 400;
             letter-spacing: 1px;
         }
 
@@ -387,8 +389,8 @@
         }
 
         @media (min-width: 1100px) {
-            .about-content {
-                grid-template-columns: minmax(320px, 520px) 1fr; 
+        .about-content {
+            grid-template-columns: minmax(320px, 520px) 1fr; 
             }
         }
         
@@ -410,7 +412,7 @@
         .about-text h3 {
             font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 400;
             color: var(--color-primary);
             margin-bottom: var(--spacing-md);
             letter-spacing: 2px;
@@ -425,48 +427,48 @@
 
         /* About carousel */
         .about-carousel {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
         }
 
         .about-carousel-track {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 450ms ease;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 450ms ease;
         }
 
         .about-carousel-track img {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            user-select: none;
-            -webkit-user-drag: none;
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        user-select: none;
+        -webkit-user-drag: none;
         }
 
         /* Buttons */
         .about-carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            border: 0;
-            background: rgba(0, 0, 0, 0.55);
-            color: white;
-            font-size: 2rem;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            transition: background 0.2s ease, transform 0.2s ease;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: rgba(0, 0, 0, 0.55);
+        color: white;
+        font-size: 2rem;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .about-carousel-btn:hover {
-            background: rgba(0, 0, 0, 0.75);
-            transform: translateY(-50%) scale(1.05);
+        background: rgba(0, 0, 0, 0.75);
+        transform: translateY(-50%) scale(1.05);
         }
 
         .about-carousel-btn.prev { left: 12px; }
@@ -474,28 +476,29 @@
 
         /* Dots */
         .about-carousel-dots {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
         }
 
         .about-carousel-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.65);
-            background: transparent;
-            cursor: pointer;
-            padding: 0;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.65);
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
         }
 
         .about-carousel-dot.active {
-            background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.9);
         }
+
 
         /* Contact Section */
         .contact-content {
@@ -783,37 +786,40 @@
         </div>
         <div class="about-content">
 
-            <div class="about-image">
-                <div class="about-carousel" id="aboutCarousel" aria-label="About photo carousel">
-                    <div class="about-carousel-track">
-                        <img src="images/about1.jpeg" alt="Mosaic work in progress">
-                        <img src="images/about2.jpeg" alt="Studio detail">
-                        <img src="images/about3.jpeg" alt="Finished mosaic close-up">
-                    </div>
+<div class="about-image">
+  <div class="about-carousel" id="aboutCarousel" aria-label="About photo carousel">
+    <div class="about-carousel-track">
+      <img src="images/about1.jpeg" alt="Mosaic work in progress">
+      <img src="images/about2.jpeg" alt="Studio detail">
+      <img src="images/about3.jpeg" alt="Finished mosaic close-up">
+    </div>
 
-                    <button class="about-carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
-                    <button class="about-carousel-btn next" type="button" aria-label="Next photo">›</button>
+    <button class="about-carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="about-carousel-btn next" type="button" aria-label="Next photo">›</button>
 
-                    <div class="about-carousel-dots" aria-label="Carousel navigation"></div>
-                </div>
-            </div>
+    <div class="about-carousel-dots" aria-label="Carousel navigation"></div>
+  </div>
+</div>
+
+            
+
 
             <div class="about-text">
                 <h3>Creating Art, Piece by Piece</h3>
                 <p>
-                    As a mosaic artist, I work with beautiful handmade glass—including
-                     Italian smalti, 24ct gold leaf, stained glass, 
-                     and iridised glass—alongside millefiori and antique finds.
-                </p>
-                <p>
                     Mosaicing offers me boundless possibilities for expression. 
+                    My art and technical studies in Italy and Australia have given me the skills 
+                    needed to mosaic using my favourite material - handmade glass.
                 </p>
                 <p>
-                    The technical precision of placing individual tesserae to form images enables me to immortalize the creations of my imagination.
+                    I love to mix a variety of handmade glass such as Italian smalti, 24ct gold leaf tesserae, 
+                    millefiori, stained glass and iridised glass. 
+                    Mixed media interests me and I often include found objects, 
+                    jewellery, bone china, antique glass and ceramic tiles. 
                 </p>
                 <p>
-                    By integrating traditional methods with a mixed-media approach, 
-                    I create high-impact glass work defined by light and texture.
+                    The technique of placing small pieces of beautiful materials (called tesserae) together 
+                    to form images enables me to immortalise the creations of my imagination. 
                 </p>
             </div>
         </div>
@@ -946,7 +952,7 @@
         prevBtn.addEventListener('click', () => goTo(index - 1));
         nextBtn.addEventListener('click', () => goTo(index + 1));
 
-        // Optional: autoplay (comment out if you don't want it)
+        // Optional: autoplay (comment out if you don’t want it)
         let timer = setInterval(() => goTo(index + 1), 4500);
 
         // Pause autoplay on hover/focus
