@@ -162,6 +162,7 @@
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             position: relative;
             overflow: hidden;
+            padding: 120px 20px 80px;
         }
 
         .hero::before {
@@ -176,14 +177,16 @@
         }
 
         .hero-logo {
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
             display: flex;
             justify-content: center;
         }
 
         .hero-logo img {
-            width: clamp(180px, 27vw, 390px);
+            width: clamp(160px, 25vw, 380px);
             height: auto;
+            max-height: 45vh;
+            object-fit: contain;
         }
 
         @keyframes float {
@@ -202,6 +205,7 @@
             text-align: center;
             z-index: 1;
             animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 100%;
         }
 
         @keyframes fadeInUp {
@@ -217,10 +221,10 @@
 
         .hero h1 {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 7rem);
+            font-size: clamp(2.2rem, 5.5vw, 4.5rem);
             font-weight: bold;
             color: var(--color-primary);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 0.5rem;
             letter-spacing: 4px;
         }
 
@@ -567,6 +571,17 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: clamp(2rem, 5vw, 4rem);
+            }
+
+            .hero-logo img {
+                width: clamp(145px, 26vw, 300px);
+                max-height: 42vh;
+            }
+        }
+
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
@@ -577,8 +592,18 @@
                 gap: var(--spacing-sm);
             }
 
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
             .hero h1 {
+                font-size: clamp(1.8rem, 7vw, 3.5rem);
                 letter-spacing: 2px;
+            }
+
+            .hero-logo img {
+                width: clamp(120px, 32vw, 240px);
+                max-height: 35vh;
             }
 
             .about-content {
@@ -591,6 +616,20 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .hero h1 {
+                font-size: clamp(1.6rem, 5vw, 3rem);
+            }
+
+            .hero-logo img {
+                max-height: 30vh;
+            }
+
+            .hero {
+                padding: 90px 20px 50px;
             }
         }
 
@@ -801,19 +840,19 @@
             <div class="about-text">
                 <h3>Creating Art, Piece by Piece</h3>
                 <p>
-                    As a mosaic artist, I work with beautiful handmade glass—including
-                     Italian smalti, 24ct gold leaf, stained glass, 
-                     and iridised glass—alongside millefiori and antique finds.
-                </p>
-                <p>
                     Mosaicing offers me boundless possibilities for expression. 
+                    My art and technical studies in Italy and Australia have given me the skills 
+                    needed to mosaic using my favourite material - handmade glass.
                 </p>
                 <p>
-                    The technical precision of placing individual tesserae to form images enables me to immortalize the creations of my imagination.
+                    I love to mix a variety of handmade glass such as Italian smalti, 24ct gold leaf tesserae, 
+                    millefiori, stained glass and iridised glass. 
+                    Mixed media interests me and I often include found objects, 
+                    jewellery, bone china, antique glass and ceramic tiles. 
                 </p>
                 <p>
-                    By integrating traditional methods with a mixed-media approach, 
-                    I create high-impact glass work defined by light and texture.
+                    The technique of placing small pieces of beautiful materials (called tesserae) together 
+                    to form images enables me to immortalise the creations of my imagination. 
                 </p>
             </div>
         </div>
