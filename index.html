@@ -1007,12 +1007,6 @@
         prevBtn.addEventListener('click', () => goTo(index - 1));
         nextBtn.addEventListener('click', () => goTo(index + 1));
 
-        // Optional: autoplay (comment out if you don't want it)
-        let timer = setInterval(() => goTo(index + 1), 4500);
-
-        // Pause autoplay on hover/focus
-        carousel.addEventListener('mouseenter', () => clearInterval(timer));
-        carousel.addEventListener('mouseleave', () => timer = setInterval(() => goTo(index + 1), 4500));
         })();
 
         // Email obfuscation (basic)
