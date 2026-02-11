@@ -1007,6 +1007,20 @@
         prevBtn.addEventListener('click', () => goTo(index - 1));
         nextBtn.addEventListener('click', () => goTo(index + 1));
 
+        // Auto-play video when scrolling into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentSlide = slides[index];
+                    if (currentSlide.tagName === 'VIDEO') {
+                        currentSlide.play();
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(carousel);
+
         })();
 
         // Email obfuscation (basic)
