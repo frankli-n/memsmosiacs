@@ -6,7 +6,7 @@
     <title>MemsMosaics - Contemporary Mosaic Art</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #d88a4a;
@@ -14,21 +14,13 @@
             --color-light: #1a1a1a;
             --color-dark: #0a0a0a;
             --color-mid: #b0b0b0;
-            --font-display: 'Founders Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-display: 'Montserrat', sans-serif;
             --font-body: 'Montserrat', sans-serif;
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
             --spacing-md: 2rem;
             --spacing-lg: 4rem;
             --spacing-xl: 6rem;
-        }
-
-        @font-face {
-            font-family: 'Founders Grotesk';
-            src: url('fonts/founders-grotesk-bold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
         }
 
         * {
@@ -80,20 +72,111 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
             font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 900;
             letter-spacing: 2px;
             color: var(--color-primary);
             text-decoration: none;
             transition: color 0.3s ease;
+            text-transform: uppercase;
         }
 
         .logo:hover {
             color: var(--color-accent);
+        }
+
+        /* Color Picker */
+        .color-picker-wrapper {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .color-picker-button {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--color-primary);
+            background: var(--color-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-picker-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(216, 138, 74, 0.5);
+        }
+
+        .color-picker-panel {
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 26, 0.98);
+            border: 1px solid var(--color-primary);
+            padding: 1rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-picker-panel.active {
+            display: flex;
+        }
+
+        .preset-colors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+
+        .preset-color {
+            width: 40px;
+            height: 40px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .preset-color:hover {
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .preset-color.active {
+            border-color: white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .custom-color-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(176, 176, 176, 0.3);
+        }
+
+        .custom-color-section label {
+            color: var(--color-mid);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .custom-color-input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            cursor: pointer;
         }
 
         nav ul {
@@ -222,10 +305,11 @@
         .hero h1 {
             font-family: var(--font-display);
             font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-            font-weight: bold;
+            font-weight: 900;
             color: var(--color-primary);
             margin-bottom: 0.5rem;
             letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .hero p {
@@ -282,10 +366,11 @@
         .section-header h2 {
             font-family: var(--font-display);
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: bold;
+            font-weight: 900;
             color: var(--color-primary);
             margin-bottom: var(--spacing-sm);
             letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .section-header .subtitle {
@@ -359,8 +444,9 @@
             color: white;
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 900;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* Template placeholders */
@@ -419,10 +505,11 @@
         .about-text h3 {
             font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 900;
             color: var(--color-primary);
             margin-bottom: var(--spacing-md);
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .about-text p {
@@ -593,6 +680,18 @@
                 width: clamp(145px, 26vw, 300px);
                 max-height: 42vh;
             }
+
+            .color-picker-wrapper {
+                position: static;
+                transform: none;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav .container {
+                flex-wrap: wrap;
+            }
         }
 
         @media (max-width: 768px) {
@@ -705,6 +804,44 @@
     <nav>
         <div class="container">
             <a href="#home" class="logo">MemsMosaics</a>
+            
+            <!-- Color Picker -->
+            <div class="color-picker-wrapper">
+                <div class="color-picker-button" id="colorPickerButton"></div>
+                <div class="color-picker-panel" id="colorPickerPanel">
+                    <div class="preset-colors">
+                        <!-- Teal -->
+                        <div class="preset-color" style="background: #4a9b8e;" data-color="#4a9b8e" title="Teal"></div>
+                        <!-- Deep Teal -->
+                        <div class="preset-color" style="background: #3d8577;" data-color="#3d8577" title="Deep Teal"></div>
+                        <!-- Light Sage -->
+                        <div class="preset-color" style="background: #a8b8a8;" data-color="#a8b8a8" title="Light Sage"></div>
+                        <!-- Warm Cream -->
+                        <div class="preset-color" style="background: #f5f1e8;" data-color="#f5f1e8" title="Warm Cream"></div>
+                        <!-- Deep Burgundy -->
+                        <div class="preset-color" style="background: #8B3A3A;" data-color="#8B3A3A" title="Deep Burgundy"></div>
+                        <!-- Wine Red -->
+                        <div class="preset-color" style="background: #a04040;" data-color="#a04040" title="Wine Red"></div>
+                        <!-- Crimson -->
+                        <div class="preset-color" style="background: #b54545;" data-color="#b54545" title="Crimson"></div>
+                        <!-- Burnt Orange -->
+                        <div class="preset-color" style="background: #c76a3a;" data-color="#c76a3a" title="Burnt Orange"></div>
+                        <!-- Terracotta -->
+                        <div class="preset-color" style="background: #cc6644;" data-color="#cc6644" title="Terracotta"></div>
+                        <!-- Amber (default) -->
+                        <div class="preset-color active" style="background: #d88a4a;" data-color="#d88a4a" title="Amber"></div>
+                        <!-- Deep Coral -->
+                        <div class="preset-color" style="background: #d66850;" data-color="#d66850" title="Deep Coral"></div>
+                        <!-- Gold -->
+                        <div class="preset-color" style="background: #d4a574;" data-color="#d4a574" title="Gold"></div>
+                    </div>
+                    <div class="custom-color-section">
+                        <label for="customColorInput">Custom Color:</label>
+                        <input type="color" id="customColorInput" class="custom-color-input" value="#d88a4a">
+                    </div>
+                </div>
+            </div>
+
             <ul>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#about">About</a></li>
@@ -910,7 +1047,77 @@
         <img src="" alt="" id="modalImage">
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // Color Picker Functionality
+        (function initColorPicker() {
+            const pickerButton = document.getElementById('colorPickerButton');
+            const pickerPanel = document.getElementById('colorPickerPanel');
+            const presetColors = document.querySelectorAll('.preset-color');
+            const customColorInput = document.getElementById('customColorInput');
+
+            // Toggle panel
+            pickerButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pickerPanel.classList.toggle('active');
+            });
+
+            // Close panel when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!pickerPanel.contains(e.target) && e.target !== pickerButton) {
+                    pickerPanel.classList.remove('active');
+                }
+            });
+
+            // Function to change color
+            function changeColor(color) {
+                document.documentElement.style.setProperty('--color-primary', color);
+                document.documentElement.style.setProperty('--color-accent', color);
+                pickerButton.style.background = color;
+                pickerButton.style.borderColor = color;
+                
+                // Save to localStorage
+                localStorage.setItem('memsmosaics-color', color);
+            }
+
+            // Preset color clicks
+            presetColors.forEach(preset => {
+                preset.addEventListener('click', () => {
+                    const color = preset.getAttribute('data-color');
+                    changeColor(color);
+                    customColorInput.value = color;
+                    
+                    // Update active state
+                    presetColors.forEach(p => p.classList.remove('active'));
+                    preset.classList.add('active');
+                });
+            });
+
+            // Custom color input
+            customColorInput.addEventListener('input', (e) => {
+                const color = e.target.value;
+                changeColor(color);
+                
+                // Remove active from presets
+                presetColors.forEach(p => p.classList.remove('active'));
+            });
+
+            // Load saved color on page load
+            const savedColor = localStorage.getItem('memsmosaics-color');
+            if (savedColor) {
+                changeColor(savedColor);
+                customColorInput.value = savedColor;
+                
+                // Update active state for matching preset
+                presetColors.forEach(preset => {
+                    if (preset.getAttribute('data-color') === savedColor) {
+                        preset.classList.add('active');
+                    } else {
+                        preset.classList.remove('active');
+                    }
+                });
+            }
+        })();
+
         // Image Modal Functionality
         function openModal(element) {
             const img = element.querySelector('img');
@@ -1035,16 +1242,14 @@
 
         // Email obfuscation (basic)
         (function () {
-            const user = "memsmosaics";          // change this
-            const domain = "gmail.com"; // change this
+            const user = "memsmosaics";
+            const domain = "gmail.com";
             const addr = `${user}@${domain}`;
 
             const link = document.getElementById("emailLink");
             if (!link) return;
 
             link.href = `mailto:${addr}`;
-            // Optional: show the email text too
-            // link.textContent = addr;
         })();
 
     </script>
