@@ -1026,8 +1026,10 @@
             </p>
             <div class="contact-methods">
                 <a id="emailLink" class="contact-button" href="#">Email Me</a>
+                <a id="phoneLink" class="contact-button secondary" href="#">Call Me</a>
                 <noscript>
-                Email: hello [at] memsmosaics [dot] com
+                Email: memsmosaics [at] gmail [dot] com<br>
+                Phone: [Your phone number here]
                 </noscript>
                 <a href="https://www.instagram.com/memsmosaics/" target="_blank" class="contact-button secondary">
                     Follow on Instagram
@@ -1250,6 +1252,18 @@
             if (!link) return;
 
             link.href = `mailto:${addr}`;
+        })();
+
+        // Phone obfuscation (basic)
+        (function () {
+            const phone = "0412345678"; // CHANGE THIS to actual phone number (no spaces or dashes)
+            const formatted = phone.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3"); // Formats as: 0412 345 678
+
+            const link = document.getElementById("phoneLink");
+            if (!link) return;
+
+            link.href = `tel:${phone}`;
+            link.textContent = formatted; // Optional: shows the formatted number
         })();
 
     </script>
